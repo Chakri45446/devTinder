@@ -1,0 +1,15 @@
+{
+  "name": "devtinder-be",
+  "version": "1.0.0",
+  "description": "Tinder for devs",
+  "license": "ISC",
+  "author": "Chakradara Rao Seelam",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
