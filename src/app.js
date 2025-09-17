@@ -2,28 +2,38 @@ const express = require("express");
 
 const app = express();
 
-app.get("/user/:id/:name/:password", (req, res) => {
-  console.log(req.params);
-  res.send({ firstName: "Chandu", lastName: "Seelam" });
-});
+app.use(
+  "/user",
+  (req, res, next) => {
+    // Route Handler
+    console.log("Handling the Route user!");
+    //res.send("Response!");
+    next();
+  },
+  (req, res, next) => {
+    console.log("Handling the Route user 2!");
+    //res.send("2nd Response!");
+    next();
+  },
+  (req, res, next) => {
+    console.log("Handling the Route user 3!");
+    //res.send("3rd Response!");
+    next();
+  },
+  (req, res, next) => {
+    console.log("Handling the Route user 4!");
+    //res.send("4th Response!");
+    next();
+  },
+  (req, res, next) => {
+    console.log("Handling the Route user 5!");
+    res.send("5th Response!");
+  }
+);
 
-// // This will only handle GET call to /user
-// app.get("/user", (req, res) => {
+// app.get("/user/:id/:name/:password", (req, res) => {
+//   console.log(req.params);
 //   res.send({ firstName: "Chandu", lastName: "Seelam" });
-// });
-
-// app.post("/user", (req, res) => {
-//   // Saving data to DB
-//   res.send("Data Successfully saved to the database!");
-// });
-
-// app.delete("/user", (req, res) => {
-//   res.send("Deleted Successfully!");
-// });
-
-// //this will match all the HTTP method API calls to /works
-// app.use("/works", (req, res) => {
-//   res.send("It's Working");
 // });
 
 app.listen(4555, () => {
