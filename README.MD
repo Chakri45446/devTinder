@@ -7,4 +7,7 @@
 - Listen to port 4555
 - Write request handlers for "/" and "/works"
 - Install Nodemon (auto relaod the server) and Update Scripts inside package.json
+- Play with routes and route extensions ex: / , /works
+- Order of the routes matter a lot
+- Install Postman app and make a workspace/collection > test api call
 -
