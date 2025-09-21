@@ -1,35 +1,24 @@
 const express = require("express");
 
 const app = express();
-// app.use("/route" , rH , [rH1 , rH2] , rH3 , rH4 , rH5) // works like same as below (no difference)
-app.use(
-  "/user",
-  (req, res, next) => {
-    // Route Handler
-    console.log("Handling the Route user!");
-    //res.send("Response!");
-    next();
-  },
-  (req, res, next) => {
-    console.log("Handling the Route user 2!");
-    //res.send("2nd Response!");
-    next();
-  },
-  (req, res, next) => {
-    console.log("Handling the Route user 3!");
-    //res.send("3rd Response!");
-    next();
-  },
-  (req, res, next) => {
-    console.log("Handling the Route user 4!");
-    //res.send("4th Response!");
-    next();
-  },
-  (req, res, next) => {
-    console.log("Handling the Route user 5!");
-    res.send("5th Response!");
-  }
-);
+
+const { adminAuth, userAuth } = require("./Middlewares/auth");
+// where middleware comes into picture
+
+// Handle Auth Middleware for all GET,POST,... requests
+app.use("/admin", adminAuth);
+
+app.post("/user/login", (req, res) => {
+  res.send("User logged in successfully");
+});
+
+app.get("/user", userAuth, (req, res) => {
+  res.send("User Data Sent");
+});
+
+app.get("/admin/getAllData", (req, res) => {
+  res.send("All Data Sent");
+});
 
 // app.get("/user/:id/:name/:password", (req, res) => {
 //   console.log(req.params);
