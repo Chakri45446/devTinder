@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-
+// app.use("/route" , rH , [rH1 , rH2] , rH3 , rH4 , rH5) // works like same as below (no difference)
 app.use(
   "/user",
   (req, res, next) => {
