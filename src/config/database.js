@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
+const { MONGOOSE_CONNECT } = require("../../utils/constants");
 
 const connectDB = async () => {
-  mongoose.connect(
-    "mongodb+srv://Rohit:ntthvRnf3yT61Q5U@namastenode.v7dudsp.mongodb.net/devTinder"
-  );
+  mongoose.connect(MONGOOSE_CONNECT);
 };
 module.exports = connectDB;

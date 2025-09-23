@@ -7,10 +7,10 @@ const app = express();
 app.post("/signup", async (req, res) => {
   // Creating a new instance of User model
   const user = new User({
-    firstName: "Rohit",
-    lastName: "Sharma",
-    emailId: "Rohit@123gmail.com",
-    password: "Rohit@123",
+    firstName: "Virat",
+    lastName: "Kohli",
+    emailId: "virat@123gmail.com",
+    password: "virat@123",
   });
   try {
     await user.save();
