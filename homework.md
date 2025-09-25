@@ -46,5 +46,11 @@
 - Add the express.json middleware to your app
 - Make your signup API dynamic to receive data from the end user(postman)
 - User.findOne() with duplicate email ids , which objects returned
-- API - Get user by email
+- API - Get user by emailId
 - API - Feed API - GET /feed - get all the users from the database
+- Create a delete user API
+- Difference between PUT and PATCH
+- API - Update a user
+- Explore Mongoose Documentation for Models methods
+- What are options in a Model.findOneAndUpdate method , explore more about it.
+- API - Update the user with email ID
