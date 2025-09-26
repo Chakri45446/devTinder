@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema(
   {
@@ -17,10 +18,20 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       trim: true,
+      validate(value) {
+        if (!validator.isEmail(value)) {
+          throw new Error("Invalid Email Address:" + value);
+        }
+      },
     },
     password: {
       type: String,
       required: true,
+      validate(value) {
+        if (!validator.isStrongPassword(value)) {
+          throw new Error("Enter a Strong Password:" + value);
+        }
+      },
     },
     age: {
       type: Number,
@@ -38,6 +49,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       default:
         "https://stock.adobe.com/in/search/images?k=default+profile+picture",
+      validate(value) {
+        if (!validator.isURL(value)) {
+          throw new Error("Invalid Photo URL Address:" + value);
+        }
+      },
     },
     about: {
       type: String,
