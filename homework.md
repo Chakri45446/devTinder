@@ -65,3 +65,4 @@
 - Data Sanitizing - Add API validation for each field
 - Install Validator
 - Explore Validator Library functions and use Validator functions for password , email and photoUrl
+- NEVER TRUST req.body(because it can get any malicious data to your database)
