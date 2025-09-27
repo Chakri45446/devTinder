@@ -5,6 +5,7 @@ const { validateSignUpData } = require("../utils/validation");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
+const { userAuth } = require("./Middlewares/auth");
 
 const app = express();
 
@@ -49,10 +50,14 @@ app.post("/login", async (req, res) => {
     const isPasswordvalid = await bcrypt.compare(password, user.password);
     if (isPasswordvalid) {
       // Create a JWT Token
-      const token = await jwt.sign({ _id: user._id }, "DEV@Tinder$45");
+      const token = await jwt.sign({ _id: user._id }, "DEV@Tinder$45", {
+        expiresIn: "7d",
+      });
 
       // Add the token to cookie and send the response back to the user
-      res.cookie("token", token);
+      res.cookie("token", token, {
+        expires: new Date(Date.now() + 8 * 3600000),
+      });
 
       res.send("Login Successful!!!");
     } else {
@@ -63,24 +68,31 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/profile", async (req, res) => {
+app.post("/sendConnectionRequest", userAuth, (req, res) => {
+  const user = req.user;
+  console.log("Sending a connection Request");
+
+  res.send(user.firstName + " " + "Sent a connection Request");
+});
+
+app.get("/profile", userAuth, async (req, res) => {
   try {
-    const cookies = req.cookies;
-    const { token } = cookies;
-    if (!token) {
-      throw new Error("Invalid Token");
-    }
+    //   const cookies = req.cookies;
+    //   const { token } = cookies;
+    //   if (!token) {
+    //     throw new Error("Invalid Token");
+    //   }
 
-    // validate the token
-    const decoddedMessage = await jwt.verify(token, "DEV@Tinder$45");
+    //   // validate the token
+    //   const decoddedMessage = await jwt.verify(token, "DEV@Tinder$45");
 
-    const { _id } = decoddedMessage;
-    console.log("Logged in user as: " + _id);
-    const user = await User.findById(_id);
-    if (!user) {
-      throw new Error("User does not Exist");
-    }
-
+    //   const { _id } = decoddedMessage;
+    //   console.log("Logged in user as: " + _id);
+    //   const user = await User.findById(_id);
+    //   if (!user) {
+    //     throw new Error("User does not Exist");
+    //   }
+    const user = req.user;
     res.send(user);
   } catch (err) {
     res.status(400).send("ERROR: " + err.message);
