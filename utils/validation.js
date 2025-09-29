@@ -11,6 +11,33 @@ const validateSignUpData = (req) => {
   }
 };
 
+const valiadteEditProfileData = (req) => {
+  const ALLOWEDEDITDATA = [
+    "firstName",
+    "lastName",
+    "skills",
+    "photoUrl",
+    "about",
+    "age",
+    "gender",
+  ];
+
+  const isAllowedData = Object.keys(req.body).every((key) =>
+    ALLOWEDEDITDATA.includes(key)
+  );
+  return isAllowedData;
+};
+
+const validateForgotPassword = (req) => {
+  const NEWPASSWORD = ["password"];
+
+  const isPassword = Object.keys(req.body).every((k) =>
+    NEWPASSWORD.includes(k)
+  );
+  return isPassword;
+};
 module.exports = {
   validateSignUpData,
+  valiadteEditProfileData,
+  validateForgotPassword,
 };

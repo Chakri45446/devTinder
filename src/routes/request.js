@@ -6,7 +6,7 @@ requestRouter.post("/sendConnectionRequest", userAuth, (req, res) => {
   const user = req.user;
   console.log("Sending a connection Request");
 
-  res.send(user.firstName + " " + "Sent a connection Request");
+  res.send(user.firstName + ", " + "sent a connection request");
 });
 
 module.exports = requestRouter;
