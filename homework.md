@@ -95,4 +95,16 @@
 - Create POST /logout API
 - Create PATCH /pofile/edit API
 - Create PATCH /profile/forgotpassword API
-- Make sure validate all data in every POST , PATCH APIs
+- Make sure validate all data in every POST , PATCH
+
+- Create Connection Request Schema
+- Send Connection Request API
+- Proper Validation of data
+- Think about all Corner Cases
+- $or and $and query in mongoDB -https://www.mongodb.com/docs/manual/reference/mql/query-predicates/logical/
+- schema.pre("save") function(){}
+- Read more anout indexes in Mongodb
+- Why we need index in DB?
+- What is the advantage and disadvantage of creating?
+- Read this article about compound indexes - https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
+- \*\*\* ALWAYS THINK ABOUT THE CORNER CASES
