@@ -108,3 +108,5 @@
 - What is the advantage and disadvantage of creating?
 - Read this article about compound indexes - https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
 - \*\*\* ALWAYS THINK ABOUT THE CORNER CASES
+
+- Write code with prpoer Validations for POST /request/review/:status/:requestId
