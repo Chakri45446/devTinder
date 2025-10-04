@@ -117,3 +117,8 @@
 
 - Logic for GET /feed API
 - Explore the $nin , $and , $ne , $or and other query operators
+- Pagination - skip() & limit()
+
+/feed?page=1&limit=10 => skip(0) & limit = 10 => starts 0 - 10
+/feed?page=2&limit=10 => skip(10) & limit = 10 => starts 11 - 20
+/feed?page=3&limit=10 => skip(0) & limit = 10 => starts 21 - 30
