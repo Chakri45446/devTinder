@@ -20,8 +20,9 @@
 
 ## userRouter
 
-- GET /user/connections
 - GET /user/requests
+- GET /user/connections
+
 - GET /user/feed
 
 status: ignored , interested , accepted , rejected

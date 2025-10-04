@@ -110,3 +110,10 @@
 - \*\*\* ALWAYS THINK ABOUT THE CORNER CASES
 
 - Write code with prpoer Validations for POST /request/review/:status/:requestId
+- Thought Process - POST & GET
+- Read about ref and populate
+- Create GET /user/requests/received with all checks
+- Create GET /user/connections
+
+- Logic for GET /feed API
+- Explore the $nin , $and , $ne , $or and other query operators
